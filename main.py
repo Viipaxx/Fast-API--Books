@@ -1,3 +1,6 @@
+import os
+
+import uvicorn
 from fastapi import FastAPI, Form, Response
 from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
@@ -119,6 +122,6 @@ def deleteBook(book_ISNB: str = Form()):
     pass
 
 if __name__ == '__main__':
-    import uvicorn
-    print(">>>>>>>>>>>> version V0.0.1")
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.getenv("PORT", 8000))  # Usa a variável PORT ou 8000 como padrão
+    print(f">>>>>>>>>>>> Starting server on port {port}")
+    uvicorn.run(app, host="0.0.0.0", port=port)
