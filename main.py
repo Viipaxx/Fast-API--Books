@@ -121,4 +121,4 @@ def deleteBook(book_ISNB: str = Form()):
 if __name__ == '__main__':
     import uvicorn
     print(">>>>>>>>>>>> version V0.0.1")
-    uvicorn.run(app)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
